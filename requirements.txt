@@ -1,0 +1,7 @@
+flask
+chatterbot
+pip install spacy==2.1.8
+python -m spacy download en_core_web_sm
+covid
+python -m spacy download en
+pyaml
