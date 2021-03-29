@@ -1,7 +1,6 @@
 flask
 chatterbot
-pip install spacy==2.1.8
-python -m spacy download en_core_web_sm
+spacy==2.1.8
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz#egg=en_core_web_sm
 covid
-python -m spacy download en
 pyaml
