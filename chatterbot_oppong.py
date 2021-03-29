@@ -8,6 +8,9 @@ from chatterbot.response_selection import get_random_response
 from pprint import pprint
 from re import search
 from flask import Flask, request
+import spacy
+from spacy.cli.download import download
+download(model="en")
 
 app = Flask(__name__)
 
@@ -107,8 +110,8 @@ def get_bot_response(inquiry):
     )
 
     # Create a new trainer for the chatbot
-    # trainer = ChatterBotCorpusTrainer(chatbot)
-    # trainer.train('./data')
+    trainer = ChatterBotCorpusTrainer(chatbot)
+    trainer.train('./data')
     inquiry = inquiry.lower()
     response = 'kk'
     cntry=''
@@ -124,5 +127,7 @@ def get_bot_response(inquiry):
 
     return str (response)
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
+
+get_bot_response('how are you')
