@@ -3,3 +3,4 @@ chatterbot
 spacy==2.2.0
 covid
 pyaml
+gunicorn
