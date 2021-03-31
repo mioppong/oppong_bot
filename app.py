@@ -82,9 +82,9 @@ def get_corona_world_stats():
 # if running local uncomment line below
 @app.route('/')
 def chatbot():
-    # message = (request.args.get('message'))
-    # response = get_bot_response(message)
-    return 'response'
+    message = (request.args.get('message'))
+    response = get_bot_response(message)
+    return response
 
 
 
@@ -106,7 +106,8 @@ def get_bot_response(inquiry):
     )
 
     # Create a new trainer for the chatbot
-    trainer = ChatterBotCorpusTrainer(chatbot,show_training_progress=False)
+    # show_training_progress=False
+    trainer = ChatterBotCorpusTrainer(chatbot)
     trainer.train('./gang.yml')
     inquiry = inquiry.lower()
     response = 'kk'
