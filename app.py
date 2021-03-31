@@ -82,9 +82,12 @@ def get_corona_world_stats():
 # if running local uncomment line below
 @app.route('/')
 def chatbot():
+    print('beginning')
     message = (request.args.get('message'))
-    response = get_bot_response(message)
-    return response
+    # response = get_bot_response(message)
+    print('end')
+
+    return message
 
 
 
