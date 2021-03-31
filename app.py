@@ -4,7 +4,6 @@ from covid import Covid
 import locale
 from pathlib import Path
 from chatterbot.response_selection import get_random_response
-from pprint import pprint
 from re import search
 from flask import Flask, request
 import spacy
@@ -77,10 +76,10 @@ def get_corona_world_stats():
 # if running local uncomment line below
 @app.route('/')
 def chatbot():
-    print('beginning')
+
     message = (request.args.get('message'))
     response = get_bot_response(message)
-    print('end')
+
 
     return response
 
