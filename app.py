@@ -109,7 +109,7 @@ def get_bot_response(inquiry):
     # show_training_progress=False
     trainer = ChatterBotCorpusTrainer(chatbot)
     trainer.train('./sad.yml')
-    inquiry = inquiry.lower()
+    inquiry = str(inquiry).lower()
     response = 'kk'
     cntry=''
     if user_ask_about_corona(inquiry):
@@ -126,6 +126,3 @@ def get_bot_response(inquiry):
 
 if __name__ == "__main__":
     app.run()
-
-
-get_bot_response('hello da')
