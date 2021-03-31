@@ -14,7 +14,6 @@ download(model="en")
 app = Flask(__name__)
 
 script_location = Path(__file__).absolute().parent
-locale.setlocale(locale.LC_ALL, 'en_US')
 
 covid = Covid(source="worldometers")
 
@@ -25,12 +24,8 @@ def get_country(text):
     FROM USER INPUT,
     WE GET THE COUNTRY MENTIONED
     '''
-    countries = []
-    countries_location = script_location / 'countries.txt'
-    data = open(countries_location).readlines()
-    for x in data:
-        countries.append(x.strip().lower())
-    
+    countries = ['north america', 'asia', 'south america', 'europe', 'africa', 'oceania', 'world', 'usa', 'india', 'brazil', 'russia', 'spain', 'argentina', 'colombia', 'france', 'peru', 'mexico', 'uk', 'south africa', 'iran', 'chile', 'iraq', 'italy', 'bangladesh', 'germany', 'indonesia', 'philippines', 'turkey', 'saudi arabia', 'pakistan', 'israel', 'ukraine', 'netherlands', 'belgium', 'canada', 'romania', 'poland', 'morocco', 'czechia', 'ecuador', 'bolivia', 'nepal', 'qatar', 'panama', 'dominican republic', 'kuwait', 'uae', 'oman', 'kazakhstan', 'egypt', 'sweden', 'guatemala', 'portugal', 'costa rica', 'japan', 'ethiopia', 'belarus', 'honduras', 'venezuela', 'bahrain', 'switzerland', 'moldova', 'austria', 'armenia', 'uzbekistan', 'lebanon', 'nigeria', 'singapore', 'algeria', 'paraguay', 'kyrgyzstan', 'ireland', 'libya', 'ghana', 'palestine', 'hungary', 'azerbaijan', 'kenya', 'tunisia', 'afghanistan', 'jordan', 'serbia', 'myanmar', 'denmark', 'bosnia and herzegovina', 'el salvador', 'slovakia', 'bulgaria', 'australia', 'croatia', 'greece', 's. korea', 'north macedonia', 'cameroon', 'malaysia', 'ivory coast', 'georgia', 'albania', 'madagascar', 'norway', 'zambia', 'montenegro', 'senegal', 'sudan', 'finland', 'slovenia', 'namibia', 'guinea', 'maldives', 'drc', 'luxembourg', 'mozambique', 'uganda', 'tajikistan', 'french guiana', 'haiti', 'gabon', 'jamaica', 'zimbabwe', 'cabo verde', 'mauritania', 'lithuania', 'angola', 'guadeloupe', 'cuba', 'malawi', 'eswatini', 'bahamas', 'sri lanka', 'djibouti', 'nicaragua', 'trinidad and tobago', 'hong kong', 'botswana', 'congo', 'suriname', 'equatorial guinea', 'syria', 'rwanda', 'car', 'réunion', 'malta', 'aruba', 'estonia', 'iceland', 'mayotte', 'somalia', 'french polynesia', 'guyana', 'thailand', 'gambia', 'latvia', 'mali', 'andorra', 'south sudan', 'belize', 'cyprus', 'uruguay', 'benin', 'guinea-bissau', 'burkina faso', 'sierra leone', 'martinique', 'yemen', 'togo', 'new zealand', 'lesotho', 'chad', 'liberia', 'niger', 'vietnam', 'sao tome and principe', 'san marino', 'sint maarten', 'channel islands', 'curaçao', 'diamond princess', 'turks and caicos', 'papua new guinea', 'gibraltar', 'burundi', 'taiwan', 'saint martin', 'tanzania', 'comoros', 'faeroe islands', 'eritrea', 'mauritius', 'isle of man', 'bhutan', 'mongolia', 'cambodia', 'monaco', 'cayman islands', 'liechtenstein', 'barbados', 'bermuda', 'caribbean netherlands', 'seychelles', 'brunei', 'antigua and barbuda', 'st. barth', 'british virgin islands', 'st. vincent grenadines', 'macao', 'dominica', 'saint lucia', 'fiji', 'timor-leste', 'grenada', 'vatican city', 'new caledonia', 'laos', 'saint kitts and nevis', 'greenland', 'saint pierre miquelon', 'montserrat', 'falkland islands', 'western sahara', 'ms zaandam', 'anguilla', 'solomon islands', 'wallis and futuna', 'china']
+
     for country in countries:
         if country in text:
             return country
@@ -84,10 +79,10 @@ def get_corona_world_stats():
 def chatbot():
     print('beginning')
     message = (request.args.get('message'))
-    # response = get_bot_response(message)
+    response = get_bot_response(message)
     print('end')
 
-    return message
+    return response
 
 
 
