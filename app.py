@@ -108,7 +108,7 @@ def get_bot_response(inquiry):
     # Create a new trainer for the chatbot
     # show_training_progress=False
     trainer = ChatterBotCorpusTrainer(chatbot)
-    trainer.train('./gang.yml')
+    trainer.train('./sad.yml')
     inquiry = inquiry.lower()
     response = 'kk'
     cntry=''
