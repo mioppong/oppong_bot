@@ -8,7 +8,7 @@ from re import search
 from flask import Flask, request
 import spacy
 from spacy.cli.download import download
-download(model="en")
+# download(model="en")
 
 app = Flask(__name__)
 
@@ -74,14 +74,16 @@ def get_corona_world_stats():
     return response_is
 
 # if running local uncomment line below
-@app.route('/')
+@app.route('/chatbot')
 def chatbot():
 
     message = (request.args.get('message'))
     response = get_bot_response(message)
-
-
     return response
+
+@app.route('/')
+def home():
+    return 'welcome cro'
 
 
 
