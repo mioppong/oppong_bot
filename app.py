@@ -1,5 +1,5 @@
 from chatterbot import ChatBot
-# from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 from covid import Covid
 import locale
 from pathlib import Path
@@ -8,7 +8,7 @@ from re import search
 from flask import Flask, request
 import spacy
 from spacy.cli.download import download
-download(model="en")
+# download(model="en")
 
 app = Flask(__name__)
 
@@ -107,7 +107,7 @@ def get_bot_response(inquiry):
     # Create a new trainer for the chatbot
     # show_training_progress=False
     # trainer = ChatterBotCorpusTrainer(chatbot)
-    # trainer.train('./gang.yml')
+    # trainer.train('./sad.yml')
     inquiry = str(inquiry).lower()
     response = 'kk'
     cntry=''
