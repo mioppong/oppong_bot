@@ -8,7 +8,7 @@ from re import search
 from flask import Flask, request
 import spacy
 from spacy.cli.download import download
-download(model="en")
+# download(model="en")
 
 app = Flask(__name__)
 
